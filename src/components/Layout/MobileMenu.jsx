@@ -1,4 +1,5 @@
 import {FaUserCircle} from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 
 const MobileMenu = ({showMenu}) => {
@@ -11,23 +12,17 @@ const MobileMenu = ({showMenu}) => {
                     <div className="flex items-center justify-start gap-3">
                         <FaUserCircle size={50}/>
                         <div>
-                            <h1>Hello User</h1>
-                            <h1 className="text-sm text-slate-500">Premium user</h1>
+                            <h1 className="text-3xl font-bold font-serif">Shops</h1>
                         </div>
                     </div>
                     <nav className="nav-items mt-12">
-                        <ul className="space-y-4 text-xl">
-                            <h1 className="cursor-pointer hover:text-primary duration-500">Home </h1>
-                            <h1 className="cursor-pointer hover:text-primary duration-500">About </h1>
-                            <h1 className="cursor-pointer hover:text-primary duration-500">Contact </h1>
-                            <h1 className="cursor-pointer hover:text-primary duration-500">Service </h1>
+                        <ul className="grid grid-cols-1 space-y-4 text-xl">
+                            <Link to="/" className="cursor-pointer hover:text-primary duration-500">Home </Link>
+                            <Link to="/category" className="cursor-pointer hover:text-primary duration-500">Category </Link>
+                            <Link to="/register" className="cursor-pointer hover:text-primary duration-500">Register </Link>
+                            <Link to="/login" className="cursor-pointer hover:text-primary duration-500">Login </Link>
                         </ul>
                     </nav>
-                </div>
-                <div className="footer">
-                    <h1>
-                        Made with ❤ by <a href="https://dilshad-ahmed.github.io/">Dilshad</a>{" "}
-                    </h1>
                 </div>
             </div>
         </>

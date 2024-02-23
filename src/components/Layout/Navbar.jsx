@@ -85,17 +85,10 @@ const Navbar = () => {
 
                         {/* Mobile view  */}
                         <div className="flex items-center gap-2 md:gap-4 md:hidden">
-                            {/*<div*/}
-                            {/*    className="flex overflow-hidden items-center justify-start bg-white h-[40px] border-[#cccccc] rounded-[5px]">*/}
-                            {/*    <input className="w-[160px] border pl-2 sm:pl-3 border-gray-500 h-full outline-none"*/}
-                            {/*           type="email"*/}
-                            {/*           placeholder="search..."/>*/}
-                            {/*    <button className="bg-[#4caf50] p-2 h-full">*/}
-                            {/*        <FaSearch size={22} className="text-white"/>*/}
-                            {/*    </button>*/}
-                            {/*</div>*/}
                             <Badge count={4}>
-                                <IoCartOutline size={30} className="cursor-pointer"/>
+                                <Link to="/cart">
+                                    <IoCartOutline size={30} className="cursor-pointer"/>
+                                </Link>
                             </Badge>
 
                             {/* Mobile Hamburger icon */}
