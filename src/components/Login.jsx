@@ -29,8 +29,8 @@ const Login = () => {
 
     return (
         <>
-            <div className="min-h-[70vh] grid place-items-center">
-                <Card color="transparent" className="p-7 bg-whiten w-[90%] sm:w-[450px]" shadow={true}>
+            <div className="min-h-[80vh] py-8 mt-1 grid place-items-center form-container">
+                <Card color="transparent" className="p-7 bg-white w-[90%] sm:w-[450px]" shadow={true}>
                     <Typography variant="h4" color="blue-gray">
                         Login
                     </Typography>
@@ -84,14 +84,19 @@ const Login = () => {
                                 <span className="error-text">{errors?.password?.message}</span>
                             )}
                         </div>
+                        <div className="flex items-center justify-end">
+                            <Link to="/forgot-password" className="text-gray-500 hover:underline cursor-pointer duration-200">Forgot Password?</Link>
+                        </div>
                         <div className="w-full">
-                            <Button disabled={isLoading} className={`${isLoading && "capitalize"} w-full flex gap-3 items-center justify-center disabled:cursor-not-allowed`} type="submit">
+                            <Button disabled={isLoading}
+                                    className={`${isLoading && "capitalize"} w-full flex gap-3 items-center justify-center disabled:cursor-not-allowed`}
+                                    type="submit">
                                 {
                                     isLoading ? (
                                         <>
                                             <Spinner className="h-4 w-4"/> Processing...
                                         </>
-                                    ): (
+                                    ) : (
                                         <>
                                             Login
                                         </>
@@ -100,8 +105,9 @@ const Login = () => {
 
                             </Button>
                         </div>
-                        <div className="flex items-center justify-end">
-                             <Link to="/register" className="text-primary underline cursor-pointer">Not a user Register here?</Link>
+                        <div className="flex items-center justify-center">
+                            <Link to="/register" className="text-primary underline cursor-pointer">Not a user Register
+                                here?</Link>
                         </div>
                     </form>
                 </Card>

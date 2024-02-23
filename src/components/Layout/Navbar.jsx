@@ -8,6 +8,7 @@ import {Badge} from "antd";
 import {IoCartOutline} from "react-icons/io5";
 import {FaSearch} from "react-icons/fa";
 import {Link} from "react-router-dom";
+import {getToken, logout} from "../../helper/SessionHelper.js";
 
 const NavLinks = [
     {
@@ -60,19 +61,31 @@ const Navbar = () => {
                         </div>
                         <nav className="md:block hidden">
                             <ul className="flex items-center gap-8">
-                                {
-                                    NavLinks.map((item, i) => {
-                                        return (
-                                            <>
-                                                <Link to={item.link} key={i.toString()}
-                                                    className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
-                                                    {item.name}
-                                                </Link>
-                                            </>
-                                        )
-                                    })
-                                }
 
+                                <Link to="/" className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
+                                     Home
+                                </Link>
+                                <Link to="/" className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
+                                    Category
+                                </Link>
+
+                                {getToken() ? (
+                                   <>
+                                       <li onClick={()=>logout()} className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
+                                           Logout
+                                       </li>
+                                   </>
+                                  ): (
+                                    <>
+                                        <Link to="/register" className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
+                                            Register
+                                        </Link>
+                                        <Link to="/login" className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
+                                            Login
+                                        </Link>
+                                    </>
+                                  )
+                                }
 
                                 <Badge count={4}>
                                     <Link to="/cart">

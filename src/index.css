@@ -5,3 +5,8 @@
 .error-text {
     @apply text-red-500 text-xs ml-0.5 font-medium;
 }
+
+.form-container{
+    background-color: #ffdee9;
+    background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+}

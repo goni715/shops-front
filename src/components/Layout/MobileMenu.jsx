@@ -1,5 +1,6 @@
 import {FaUserCircle} from "react-icons/fa";
 import {Link} from "react-router-dom";
+import {getToken, logout} from "../../helper/SessionHelper.js";
 
 
 const MobileMenu = ({showMenu}) => {
@@ -19,8 +20,19 @@ const MobileMenu = ({showMenu}) => {
                         <ul className="grid grid-cols-1 space-y-4 text-xl">
                             <Link to="/" className="cursor-pointer hover:text-primary duration-500">Home </Link>
                             <Link to="/category" className="cursor-pointer hover:text-primary duration-500">Category </Link>
-                            <Link to="/register" className="cursor-pointer hover:text-primary duration-500">Register </Link>
-                            <Link to="/login" className="cursor-pointer hover:text-primary duration-500">Login </Link>
+                            {getToken() ? (
+                                <>
+                                    <li onClick={()=>logout()} className="cursor-pointer hover:text-primary duration-500">
+                                        Logout
+                                    </li>
+                                </>
+                            ): (
+                                <>
+                                    <Link to="/register" className="cursor-pointer hover:text-primary duration-500">Register </Link>
+                                    <Link to="/login" className="cursor-pointer hover:text-primary duration-500">Login </Link>
+                                </>
+                            )
+                            }
                         </ul>
                     </nav>
                 </div>

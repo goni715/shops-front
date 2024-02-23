@@ -41,8 +41,8 @@ const Register = () => {
 
     return (
         <>
-            <div className="min-h-[75vh] grid place-items-center">
-                <Card color="transparent" className="p-7 bg-whiten w-[90%] sm:w-[500px]" shadow={true}>
+            <div className="min-h-[80vh] py-8 mt-1 grid place-items-center form-container">
+                <Card color="transparent" className="p-7 bg-white w-[90%] sm:w-[500px]" shadow={true}>
                     <Typography variant="h4" color="blue-gray">
                         Sign Up
                     </Typography>
@@ -187,8 +187,10 @@ const Register = () => {
                             </Button>
                         </div>
 
-                        <div className="md:col-span-2 flex items-center justify-end">
-                            <Link to="/login" className="text-primary underline cursor-pointer">Already an account login here?</Link>
+                        <div className="md:col-span-2 flex items-center justify-center">
+                            <Link to="/login" className="text-primary underline cursor-pointer">
+                                Already have an account? Login
+                            </Link>
                         </div>
                     </form>
                 </Card>

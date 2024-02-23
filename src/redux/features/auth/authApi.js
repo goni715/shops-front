@@ -24,7 +24,6 @@ export const authApi = apiSlice.injectEndpoints({
                     let result = err?.error?.data?.data;
                     if(status === 409){
                         dispatch(SetRegisterError(result));
-                        ErrorToast(result)
                     }else{
                         dispatch(SetRegisterError(result));
                         console.log(err)
@@ -47,16 +46,16 @@ export const authApi = apiSlice.injectEndpoints({
                         let MyToken = res.data['token'];
                         setToken(MyToken);
                         SuccessToast("Login Success");
-                        // window.location.href="/";
+                        setTimeout(()=>{
+                            window.location.href="/";
+                        },500)
                     }
                 }catch(err) {
                     const status = err?.error?.status;
                     if(status === 404){
                         dispatch(SetLoginError("Could not Find this Email!"));
-                        ErrorToast("Could not Find this Email!")
                     }else if(status === 400){
                         dispatch(SetLoginError("Wrong Password!"));
-                        ErrorToast("Wrong Password!")
                     }else{
                         // dispatch(SetLoginError("Something Went Wrong!"));
                         console.log(err)
