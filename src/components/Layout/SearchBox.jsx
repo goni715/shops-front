@@ -21,7 +21,7 @@ const SearchBox = () => {
                     value={keyword}
                     onChange={(e)=>setKeyword(e.target.value)}
                     className="w-[160px] sm:w-full md:w-[60%] border pl-2 sm:pl-3 border-gray-500 h-full outline-none"
-                    type="email"
+                    type="text"
                     placeholder="search..."
                     required
                 />
