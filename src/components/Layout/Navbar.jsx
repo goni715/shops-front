@@ -1,4 +1,3 @@
-import {BiSolidMoon} from "react-icons/bi";
 import {IoMdClose} from "react-icons/io";
 import {HiMenuAlt3} from "react-icons/hi";
 import MobileMenu from "./MobileMenu.jsx";
@@ -6,32 +5,9 @@ import {useState} from "react";
 import logo from "../../assets/images/logo.svg";
 import {Badge} from "antd";
 import {IoCartOutline} from "react-icons/io5";
-import {FaSearch} from "react-icons/fa";
 import {Link} from "react-router-dom";
 import {getToken, logout} from "../../helper/SessionHelper.js";
-
-const NavLinks = [
-    {
-        id: 1,
-        name: "HOME",
-        link: "/",
-    },
-    {
-        id: 2,
-        name: "CATEGORY",
-        link: "/category",
-    },
-    {
-        id: 1,
-        name: "REGISTER",
-        link: "/register",
-    },
-    {
-        id: 1,
-        name: "LOGIN",
-        link: "/login",
-    }
-];
+import SearchBox from "./SearchBox.jsx";
 
 
 const Navbar = () => {
@@ -50,22 +26,15 @@ const Navbar = () => {
                         <Link to="/" className="w-[35px] h-[35px] sm:w-[40px] sm:h-[40px] cursor-pointer">
                             <img src={logo} className="w-[35px] h-[35px] sm:w-[40px] sm:h-[40px]" alt=""/>
                         </Link>
-                        <div
-                            className="w-[60%] flex overflow-hidden items-center justify-center bg-white h-[40px] border-[#cccccc] rounded-[5px]">
-                            <input className="w-[160px] sm:w-full md:w-[60%] border pl-2 sm:pl-3 border-gray-500 h-full outline-none"
-                                   type="email"
-                                   placeholder="search..."/>
-                            <button className="bg-[#4caf50] p-2 h-full">
-                                <FaSearch size={22} className="text-white"/>
-                            </button>
-                        </div>
+
+                        <SearchBox/>
                         <nav className="md:block hidden">
                             <ul className="flex items-center gap-8">
 
                                 <Link to="/" className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
                                      Home
                                 </Link>
-                                <Link to="/" className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
+                                <Link to="/category" className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
                                     Category
                                 </Link>
 

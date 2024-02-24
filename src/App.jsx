@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import CategoryPage from "./pages/CategoryPage.jsx";
+import SearchPage from "./pages/SearchPage.jsx";
 
 const App = () => {
 
@@ -15,7 +16,8 @@ const App = () => {
                 <Routes>
                     <Route exact path="/" element={<HomePage/>} />
                     <Route exact path="/cart" element={<CartPage/>} />
-                    <Route exact path="/category" element={<CategoryPage/>} />
+                    <Route exact path="/category" element={<SearchPage/>} />
+                    <Route exact path="/search/:keyword" element={<SearchPage/>} />
                     <Route exact path="/login" element={<LoginPage/>} />
                     <Route exact path="/register" element={<RegisterPage/>} />
                     <Route path="/*" element={<NotFoundPage/>} />
