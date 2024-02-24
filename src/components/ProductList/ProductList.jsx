@@ -3,11 +3,13 @@ import product_img from "../../assets/images/mobile2.jpg";
 import Filter from "../Filter.jsx";
 import ProductListItem from "./ProductListItem.jsx";
 import ListLoading from "../Loader/ListLoading.jsx";
+import {useSelector} from "react-redux";
 
 
 const ProductList = () => {
-    const {data, isLoading, isError, error} = useGetProductsQuery();
-    const products = data?.data || [];
+    const {data:Data, isLoading, isError, error} = useGetProductsQuery();
+    const products = useSelector((state)=>state.product.products);
+    console.log(products)
 
     return (
         <>
@@ -24,7 +26,6 @@ const ProductList = () => {
                             <div className="flex justify-center md:justify-start flex-wrap gap-4">
 
                                 {products.length > 0 && (
-
                                      products.map((item, i) => {
                                         return (
                                             <>

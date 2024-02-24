@@ -8,10 +8,12 @@ import {IoCartOutline} from "react-icons/io5";
 import {Link} from "react-router-dom";
 import {getToken, logout} from "../../helper/SessionHelper.js";
 import SearchBox from "./SearchBox.jsx";
+import {useSelector} from "react-redux";
 
 
 const Navbar = () => {
     const [showMenu, setShowMenu] = useState(false);
+    const cart = useSelector((state)=>state.cart.cart);
 
 
     const toggleMenu = () => {
@@ -56,7 +58,7 @@ const Navbar = () => {
                                   )
                                 }
 
-                                <Badge count={4}>
+                                <Badge count={cart.length}>
                                     <Link to="/cart">
                                         <IoCartOutline size={30} className="cursor-pointer"/>
                                     </Link>
@@ -67,7 +69,7 @@ const Navbar = () => {
 
                         {/* Mobile view  */}
                         <div className="flex items-center gap-2 md:gap-4 md:hidden">
-                            <Badge count={4}>
+                            <Badge count={cart.length}>
                                 <Link to="/cart">
                                     <IoCartOutline size={30} className="cursor-pointer"/>
                                 </Link>

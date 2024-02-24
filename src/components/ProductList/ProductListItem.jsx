@@ -1,19 +1,48 @@
 import product_img from "../../assets/images/mobile2.jpg";
+import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {AddCartItem} from "../../redux/features/cart/cartSlice.js";
+import {SuccessToast} from "../../helper/ValidationHelper.js";
 
 
 const ProductListItem = ({product}) => {
     const {
         _id,
         productName,
-        categoryId,
         description,
+        categoryId,
         price,
-        quantity,
         image
     } = product || {};
 
+    const {image_url} = image || {};
 
-    const {public_id, image_url} = image || {};
+    const dispatch = useDispatch();
+    const cart = useSelector((state)=>state.cart.cart);
+
+    const handleAddToCart = () => {
+        const item = {
+            productId:_id,
+            productName: productName,
+            price:price,
+            quantity:1,
+            total:price,
+            image:image_url
+        }
+
+
+        const result = cart.find((cv)=> cv.productId === _id);
+        if(!result){
+            dispatch(AddCartItem(item));
+            SuccessToast("Item Added to cart")
+        }
+    }
+
+
+
+
+
+
     return (
         <>
 
@@ -34,12 +63,14 @@ const ProductListItem = ({product}) => {
                         {description.substring(0, 60)}...
                     </p>
                     <div className="card-name-price flex justify-between">
-                        <button
+                        <Link
+                            to={`/product/${_id}/${categoryId}`}
                             className="btn bg-blue-500 text-white hover:bg-blue-700 px-3 py-2 rounded"
                         >
                             More Details
-                        </button>
+                        </Link>
                         <button
+                            onClick={handleAddToCart}
                             className="btn bg-gray-900 text-white px-3 py-2 hover:bg-gray-700 rounded"
                         >
                             ADD TO CART
