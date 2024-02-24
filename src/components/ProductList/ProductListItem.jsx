@@ -19,7 +19,7 @@ const ProductListItem = ({product}) => {
 
             <div className="card px-3 py-6 rounded-lg bg-[#80808019] w-[18rem]">
                 <img
-                    src={product_img}
+                    src={image_url || product_img}
                     className="card-img-top h-[280px] rounded-md"
                     alt="product_image"
                 />
