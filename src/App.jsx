@@ -4,7 +4,6 @@ import CartPage from "./pages/CartPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
-import CategoryPage from "./pages/CategoryPage.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
 import ProductDetailsPage from "./pages/ProductDetailsPage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
@@ -18,10 +17,8 @@ const App = () => {
                 <Routes>
                     <Route exact path="/" element={<HomePage/>} />
                     <Route exact path="/cart" element={<CartPage/>} />
-                    <Route exact path="/category" element={<CategoryPage/>} />
                     <Route exact path="/search/:keyword" element={<SearchPage/>} />
                     <Route exact path="/product/:id/:catId" element={<ProductDetailsPage/>} />
-
                     <Route exact path="/login" element={<LoginPage/>} />
                     <Route exact path="/register" element={<RegisterPage/>} />
                     <Route exact path="/forgot-password" element={<ForgotPasswordPage/>} />

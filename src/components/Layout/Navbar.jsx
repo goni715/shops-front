@@ -36,9 +36,6 @@ const Navbar = () => {
                                 <Link to="/" className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
                                      Home
                                 </Link>
-                                <Link to="/category" className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
-                                    Category
-                                </Link>
 
                                 {getToken() ? (
                                    <>

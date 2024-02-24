@@ -19,7 +19,6 @@ const MobileMenu = ({showMenu}) => {
                     <nav className="nav-items mt-12">
                         <ul className="grid grid-cols-1 space-y-4 text-xl">
                             <Link to="/" className="cursor-pointer hover:text-primary duration-500">Home </Link>
-                            <Link to="/category" className="cursor-pointer hover:text-primary duration-500">Category </Link>
                             {getToken() ? (
                                 <>
                                     <li onClick={()=>logout()} className="cursor-pointer hover:text-primary duration-500">
