@@ -7,6 +7,7 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
 import ProductDetailsPage from "./pages/ProductDetailsPage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
+import VerifyOtpPage from "./pages/VerifyOtpPage.jsx";
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
                     <Route exact path="/login" element={<LoginPage/>} />
                     <Route exact path="/register" element={<RegisterPage/>} />
                     <Route exact path="/forgot-password" element={<ForgotPasswordPage/>} />
+                    <Route exact path="/verify-otp" element={<VerifyOtpPage/>} />
                     <Route path="/*" element={<NotFoundPage/>} />
                 </Routes>
             </BrowserRouter>

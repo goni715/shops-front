@@ -1,8 +1,8 @@
-import Login from "../components/Login.jsx";
+import Login from "../components/Auth/Login.jsx";
 import Layout from "../components/Layout/Layout.jsx";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
-import ForgotPassword from "../components/ForgotPassword.jsx";
+import ForgotPassword from "../components/Auth/ForgotPassword.jsx";
 
 
 const ForgotPasswordPage = () => {

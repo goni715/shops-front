@@ -4,12 +4,12 @@ const ListLoading = () => {
     const array = [1,2,3,4, 5,6,7,8];
     return (
         <>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 pb-6">
                 {
                     array.map((item,i)=>{
                         return(
                             <>
-                                <div key={i.toString()} className="card px-4 py-4 rounded-lg bg-[#80808019] w-[18rem] animate-pulse">
+                                <div key={i.toString()} className="card px-4 py-4 rounded-lg shadow-lg w-[18rem] animate-pulse">
                                     <div
                                         className="card-img-top bg-gray-300 h-[280px] rounded-md"
                                     ></div>

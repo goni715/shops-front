@@ -1,5 +1,5 @@
 import Layout from "../components/Layout/Layout.jsx";
-import Login from "../components/Login.jsx";
+import Login from "../components/Auth/Login.jsx";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
 

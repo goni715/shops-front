@@ -2,7 +2,6 @@ import Layout from "../components/Layout/Layout.jsx";
 import TitleMetaTag from "../components/Layout/TitleMetaTag.jsx";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
-import Home from "../components/Home.jsx";
 import ProductList from "../components/ProductList/ProductList.jsx";
 
 
@@ -24,7 +23,6 @@ const HomePage = () => {
 
             <TitleMetaTag title="Ecommerce"/>
             <Layout>
-               {/*<Home/>*/}
                 <ProductList/>
              </Layout>
         </>

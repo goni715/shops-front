@@ -1,11 +1,11 @@
 import {Card, Input, Typography, Button, Spinner} from "@material-tailwind/react";
 import {useForm} from "react-hook-form"
 import {useEffect} from "react";
-import {useRegistrationMutation} from "../redux/features/auth/authApi.js";
+import {useRegistrationMutation} from "../../redux/features/auth/authApi.js";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {SetRegisterError} from "../redux/features/auth/authSlice.js";
-import Error from "./validation/Error.jsx";
+import {SetRegisterError} from "../../redux/features/auth/authSlice.js";
+import Error from "../validation/Error.jsx";
 
 const Register = () => {
     const [registration, {isLoading, isSuccess}] = useRegistrationMutation();

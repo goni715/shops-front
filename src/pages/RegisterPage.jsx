@@ -1,5 +1,5 @@
 import Layout from "../components/Layout/Layout.jsx";
-import Register from "../components/Register.jsx";
+import Register from "../components/Auth/Register.jsx";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
 

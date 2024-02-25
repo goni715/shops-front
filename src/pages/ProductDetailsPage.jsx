@@ -12,7 +12,7 @@ const ProductDetailsPage = () => {
     const {data, isLoading} = useGetProductQuery(id);
     const product = data?.data || {};
 
-    const {data:relatedData, Loading} = useGetRelatedProductQuery({productId:id, categoryId:catId});
+    const {data:relatedData, isLoading:Loading} = useGetRelatedProductQuery({productId:id, categoryId:catId});
     const relatedProducts = relatedData?.data || {};
 
     return (
@@ -31,7 +31,7 @@ const ProductDetailsPage = () => {
                 }
 
                 <div className="container py-8">
-                    <h1 className="text-2xl font-bold font-serif pb-2">Similar Products</h1>
+
                     {
                         Loading ? (
                             <>
@@ -39,6 +39,7 @@ const ProductDetailsPage = () => {
                             </>
                         ) : (
                             <>
+                                <h1 className="text-2xl font-bold font-serif pb-2">Similar Products</h1>
                                 <RelatedProduct products={relatedProducts}/>
                             </>
                         )

@@ -1,9 +1,9 @@
 import {Card, Input, Typography, Button, Spinner} from "@material-tailwind/react";
 import { useForm} from "react-hook-form"
-import {useLoginMutation} from "../redux/features/auth/authApi.js";
+import {useLoginMutation} from "../../redux/features/auth/authApi.js";
 import {useDispatch, useSelector} from "react-redux";
-import Error from "./validation/Error.jsx";
-import {SetLoginError} from "../redux/features/auth/authSlice.js";
+import Error from "../validation/Error.jsx";
+import {SetLoginError} from "../../redux/features/auth/authSlice.js";
 import {Link, useNavigate} from "react-router-dom";
 
 const ForgotPassword = () => {
