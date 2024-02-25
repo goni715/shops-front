@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {useGetProductsQuery} from "../../redux/features/product/productApi.js";
 import product_img from "../../assets/images/mobile2.jpg";
 import Filter from "../Filter.jsx";
@@ -7,7 +8,7 @@ import {useSelector} from "react-redux";
 
 
 const ProductList = () => {
-    const {data:Data, isLoading, isError, error} = useGetProductsQuery();
+    const {data:Data, isLoading, } = useGetProductsQuery();
     const products = useSelector((state)=>state.product.products);
     console.log(products)
 

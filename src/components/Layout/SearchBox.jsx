@@ -16,17 +16,17 @@ const SearchBox = () => {
         <>
             <form
                 onSubmit={handleSearch}
-                className="w-[60%] flex overflow-hidden items-center justify-center bg-white h-[40px] border-[#cccccc] rounded-[5px]">
+                className="w-[60%] overflow-hidden flex items-center justify-center bg-white h-[40px] border-[#cccccc]">
                 <input
                     value={keyword}
                     onChange={(e)=>setKeyword(e.target.value)}
-                    className="w-[160px] sm:w-full md:w-[60%] border pl-2 sm:pl-3 border-gray-500 h-full outline-none"
+                    className="w-[158px] sm:w-full md:w-[60%] border pl-2 sm:pl-3 border-gray-500 h-full outline-none rounded-l-lg"
                     type="text"
                     placeholder="search..."
                     required
                 />
 
-                <button className="bg-[#4caf50] p-2 h-full">
+                <button className="bg-[#4caf50] p-2 h-[40px] border border-gray-500 rounded-r-lg">
                     <FaSearch size={22} className="text-white"/>
                 </button>
             </form>

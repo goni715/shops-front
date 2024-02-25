@@ -26,15 +26,19 @@ const Navbar = () => {
                 <div className="container">
                     <div className="flex h-[75px] items-center justify-between">
                         <Link to="/" className="w-[35px] h-[35px] sm:w-[40px] sm:h-[40px] cursor-pointer">
-                            <img src={logo} className="w-[35px] h-[35px] sm:w-[40px] sm:h-[40px]" alt=""/>
+                            <img src={logo} className="w-[35px] h-[35px] sm:w-[40px] sm:h-[40px]" alt=""/> 
                         </Link>
-
+                      
                         <SearchBox/>
                         <nav className="md:block hidden">
                             <ul className="flex items-center gap-8">
 
                                 <Link to="/" className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
                                      Home
+                                </Link>
+
+                                <Link to="/contact" className="cursor-pointer hover:text-primary transition-colors duration-500 text-lg font-medium">
+                                    Contact
                                 </Link>
 
                                 {getToken() ? (

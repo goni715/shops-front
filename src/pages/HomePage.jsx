@@ -21,7 +21,7 @@ const HomePage = () => {
     return (
         <>
 
-            <TitleMetaTag title="Ecommerce"/>
+            <TitleMetaTag title="Soinik-store,kaptai"/>
             <Layout>
                 <ProductList/>
              </Layout>

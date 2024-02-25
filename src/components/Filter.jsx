@@ -1,11 +1,10 @@
 import {useGetCategoriesQuery} from "../redux/features/category/categoryApi.js";
 import {useDispatch} from "react-redux";
-import {SuccessToast} from "../helper/ValidationHelper.js";
 import {SetFilterProducts, SetSortingProducts} from "../redux/features/product/productSlice.js";
 
 
 const Filter = () => {
-    const {data, isLoading, isError, error} = useGetCategoriesQuery();
+    const {data,} = useGetCategoriesQuery();
     const categories = data?.data || [];
     const dispatch = useDispatch();
 
@@ -23,7 +22,7 @@ const Filter = () => {
             <div className="flex container flex-col px-5 py-6">
                 <div className="flex sm:items-center justify-between mt-3">
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-0">
-                        <p>Filter by</p>
+                        <p>Filter by Category</p>
                         <select onChange={(e)=>handleFilter(e.target.value)} className="ml-3 border-2 border-silver bg-white p-1.5">
                             <option value="all" >All</option>
                             {

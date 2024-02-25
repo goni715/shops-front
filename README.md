@@ -1,1 +1,1 @@
-# shops-front
+# soinik-store-front

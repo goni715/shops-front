@@ -1,12 +1,13 @@
 import Layout from "../components/Layout/Layout.jsx";
 import TitleMetaTag from "../components/Layout/TitleMetaTag.jsx";
-import {Link, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {FaEdit} from "react-icons/fa";
 import {AiFillDelete} from "react-icons/ai";
 import {Table} from "antd";
 import {Decrement, Increment, RemoveCartItem} from "../redux/features/cart/cartSlice.js";
+import OrderModal from "../components/modal/OrderModal.jsx";
+import {SetModalOpen} from "../redux/features/modal/modalSlice.js";
 
 const columns = [
     {
@@ -58,8 +59,6 @@ const CartPage = () => {
         },0)
     });
 
-    const shipping = 20;
-    const discount= 10;
 
 
     let tableData=[];
@@ -112,7 +111,6 @@ const CartPage = () => {
 
     return (
         <>
-            <TitleMetaTag title="Ecommerce"/>
             <Layout>
                 <div className="container min-h-[80vh] grid grid-cols-1 lg:grid-cols-12 mt-[60px] py-6 gap-6">
                     <div className="lg:col-span-9">
@@ -126,28 +124,19 @@ const CartPage = () => {
                     {/*summary*/}
                     <div className="lg:col-span-3 lg:mt-12">
                         <div
-                            className="p-5 flex flex-col flex-[0.4] w-auto h-[40vh] border-2 border-[#8a4af3] rounded-md shadow-lg">
+                            className="p-5 flex flex-col flex-[0.4] w-auto h-[20vh] border-2 border-[#8a4af3] rounded-md shadow-lg">
                             <h1 className="text-3xl text-center">Summary</h1>
-                            <div className="flex justify-between w-full mt-3">
-                                <p>Subtotal</p>
-                                <p>${subTotal}</p>
-                            </div>
-                            <div className="flex justify-between w-full mt-3">
-                                <p>Shipping</p>
-                                <p>${shipping}</p>
-                            </div>
-                            <div className="flex justify-between w-full mt-3">
-                                <p>Discount</p>
-                                <p>${discount}</p>
-                            </div>
-                            <div className="flex justify-between w-full mt-3 text-3xl font-bold">
-                                <p>Total</p>
-                                <p>${Number(subTotal + shipping + discount)}</p>
+                            <div className="flex justify-between w-full mt-3 text-2xl font-bold">
+                                <p>Total:</p>
+                                <p>{Number(subTotal)} Taka</p>
                             </div>
                         </div>
 
                         <div className="flex justify-center items-center pt-3">
                             <button
+                                onClick={() => {
+                                    dispatch(SetModalOpen(true));
+                                }}
                                 className="btn bg-gray-900 text-white px-3 py-2 hover:bg-gray-700 rounded"
                             >
                                 Place Order
@@ -157,6 +146,8 @@ const CartPage = () => {
 
                 </div>
             </Layout>
+
+            <OrderModal/>
         </>
     );
 };

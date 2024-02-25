@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {useDispatch, useSelector} from "react-redux";
 import {AddCartItem} from "../../redux/features/cart/cartSlice.js";
 import {SuccessToast} from "../../helper/ValidationHelper.js";
@@ -51,12 +52,12 @@ const ProductDetails = ({product}) => {
                 <div className="col-md-6 product-details-info flex flex-col space-y-4">
                     <h1 className="text-center text-2xl font-bold font-serif">Product Details</h1>
                     <hr/>
-                    <h6>Name : {productName}</h6>
-                    <h6>Description : {description}</h6>
+                    <h6>Name : <span className="text-[#777777]">{productName} </span></h6>
+                    <h6>Description : <span className="text-[#777777]">{description} </span></h6>
                     <h6>
-                        Price : ${price}
+                        Price : {price} Tk
                     </h6>
-                    <h6>Category : {categoryName}</h6>
+                    <h6>Category : <span className="text-[#777777]">{categoryName} </span></h6>
                     <button onClick={handleAddToCart} className="btn bg-gray-900 text-white px-3 py-2 hover:bg-gray-700 rounded">ADD TO CART
                     </button>
                 </div>

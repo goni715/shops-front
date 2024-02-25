@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import product_img from "../../assets/images/mobile2.jpg";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
@@ -49,14 +50,14 @@ const ProductListItem = ({product}) => {
             <div className="card px-3 py-6 rounded-lg bg-[#80808019] w-[18rem]">
                 <img
                     src={image_url || product_img}
-                    className="card-img-top h-[280px] rounded-md"
+                    className="card-img-top h-[200px] rounded-md"
                     alt="product_image"
                 />
                 <div className="card-body space-y-4 mt-2">
                     <div className="card-name-price flex justify-between">
                         <h5 className="card-title">{productName}</h5>
                         <h5 className="card-title card-price text-green-500 font-bold">
-                            ${price}
+                            {price} Tk
                         </h5>
                     </div>
                     <p className="card-text text-[#5A5959]">

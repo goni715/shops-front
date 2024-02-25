@@ -4,7 +4,7 @@ const RelatedLoading = () => {
     const array = [1,2,3,4];
     return (
         <>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex justify-center md:justify-start flex-wrap gap-4">
                 {
                     array.map((item,i)=>{
                         return(
