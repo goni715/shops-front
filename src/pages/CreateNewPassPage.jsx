@@ -1,11 +1,12 @@
-import Layout from "../components/Layout/Layout.jsx";
-import VerifyOtp from "../components/Auth/VerifyOtp.jsx";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
+import Layout from "../components/Layout/Layout.jsx";
+import CreateNewPass from "../components/Auth/CreateNewPass.jsx";
 
 
-const VerifyOtpPage = () => {
+const CreateNewPassPage = () => {
     const { pathname } = useLocation();
+
     useEffect(() => {
         // "document.documentElement.scrollTo" is the magic for React Router Dom v6
         document.documentElement.scrollTo({
@@ -18,11 +19,12 @@ const VerifyOtpPage = () => {
 
     return (
         <>
-           <Layout>
-               <VerifyOtp/>
-           </Layout>
+            <Layout>
+                <CreateNewPass/>
+            </Layout>
+
         </>
     );
 };
 
-export default VerifyOtpPage;
+export default CreateNewPassPage;

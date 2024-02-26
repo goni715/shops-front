@@ -17,21 +17,27 @@ class SessionHelper {
     }
 
 
-    //notification length
-    setNotification(x){
-        localStorage.setItem("notification", x);
+    setEmail(Email){
+        localStorage.setItem("email",Email)
+    }
+    getEmail(){
+        return localStorage.getItem("email")
     }
 
-    getNotification(){
-        return localStorage.getItem("notification");
+    setOtp(otp){
+        localStorage.setItem("otp",otp)
+    }
+    getOtp(){
+        return localStorage.getItem("otp")
     }
 
     logout(){
         localStorage.clear();
-        window.location.href="/"
+        window.location.href="/login"
     }
+
 
 }
 
 
-export const {setToken, getToken, setUserDetails, getUserDetails, setNotification, getNotification, logout} = new SessionHelper();
+export const {setToken, getToken, setUserDetails, getUserDetails,setEmail,getEmail,setOtp,getOtp,logout} = new SessionHelper();

@@ -18,6 +18,7 @@ const SearchPage = () => {
             behavior: "instant", // Optional if you want to skip the scrolling animation
         });
     }, [pathname]);
+
     const {keyword} = useParams();
     const {data, isLoading, isError, error} = useSearchProductQuery(keyword);
     const products = data?.data || [];

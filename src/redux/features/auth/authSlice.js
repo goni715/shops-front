@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     loading:false,
     ForgotError: "",
-    ResetError: "",
+    VerifyOtpError: "",
+    NewPasswordError: "",
     LoginError: "",
     RegisterError: ""
 }
@@ -21,8 +22,11 @@ const authSlice = createSlice({
         SetForgotError : (state, action)=>{
             state.ForgotError=action.payload;
         },
-        SetResetError : (state, action)=>{
-            state.ResetError=action.payload;
+        SetVerifyOtpError : (state, action)=>{
+            state.VerifyOtpError=action.payload;
+        },
+        SetNewPasswordError : (state, action)=>{
+            state.NewPasswordError=action.payload;
         },
         SetLoginError : (state, action)=>{
             state.LoginError=action.payload;
@@ -35,7 +39,7 @@ const authSlice = createSlice({
 
 
 
-export const {ShowLoading, HideLoading, SetForgotError, SetResetError, SetLoginError, SetRegisterError} = authSlice.actions;
+export const {ShowLoading, HideLoading, SetForgotError, SetVerifyOtpError, SetNewPasswordError, SetLoginError, SetRegisterError} = authSlice.actions;
 
 const authSliceReducer = authSlice.reducer;
 export default authSliceReducer;

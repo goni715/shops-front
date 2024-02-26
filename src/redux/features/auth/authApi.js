@@ -1,7 +1,7 @@
 import {apiSlice} from "../api/apiSlice.js";
-import {ErrorToast, SuccessToast} from "../../../helper/ValidationHelper.js";
-import {setToken} from "../../../helper/SessionHelper.js";
-import {SetLoginError, SetRegisterError} from "./authSlice.js";
+import {SuccessToast} from "../../../helper/ValidationHelper.js";
+import {setEmail, setOtp, setToken} from "../../../helper/SessionHelper.js";
+import {SetForgotError, SetLoginError, SetNewPasswordError, SetRegisterError, SetVerifyOtpError} from "./authSlice.js";
 
 
 export const authApi = apiSlice.injectEndpoints({
@@ -31,7 +31,6 @@ export const authApi = apiSlice.injectEndpoints({
                 }
             }
         }),
-
         login: builder.mutation({
             query: (data) => ({
                 url: "/auth/login",
@@ -63,9 +62,82 @@ export const authApi = apiSlice.injectEndpoints({
                 }
             }
         }),
-
+        forgotPasswordVerifyEmail: builder.mutation({
+            query: (data) => ({
+                url: "/auth/forgot-password-verify-email",
+                method: "POST",
+                body: data
+            }),
+            async onQueryStarted(arg, {queryFulfilled, dispatch}){
+                try{
+                    const res = await queryFulfilled;
+                    let status = res?.meta?.response?.status;
+                    if(status === 200){
+                        setEmail(arg.email)
+                        SuccessToast("Success");
+                    }
+                }catch(err) {
+                    const status = err?.error?.status;
+                    if(status === 404) {
+                        dispatch(SetForgotError("Could not Find this Email!"));
+                    } else{
+                        console.log(err)
+                    }
+                }
+            }
+        }),
+        forgotPasswordVerifyOtp: builder.mutation({
+            query: (data) => ({
+                url: "/auth/forgot-password-verify-otp",
+                method: "POST",
+                body: data
+            }),
+            async onQueryStarted(arg, {queryFulfilled, dispatch}){
+                try{
+                    const res = await queryFulfilled;
+                    let status = res?.meta?.response?.status;
+                    if(status === 200){
+                        setOtp(arg.otp)
+                        SuccessToast("Success");
+                    }
+                }catch(err) {
+                    const status = err?.error?.status;
+                    let result = err?.error?.data?.data;
+                    if(status === 400) {
+                        dispatch(SetVerifyOtpError(result));
+                    } else{
+                        console.log(err)
+                    }
+                }
+            }
+        }),
+        createNewPassword: builder.mutation({
+            query: (data) => ({
+                url: "/auth/create-new-password",
+                method: "POST",
+                body: data
+            }),
+            async onQueryStarted(arg, {queryFulfilled, dispatch}){
+                try{
+                    const res = await queryFulfilled;
+                    let status = res?.meta?.response?.status;
+                    if(status === 200){
+                        localStorage.clear()
+                        SuccessToast("Success");
+                    }
+                }catch(err) {
+                    const status = err?.error?.status;
+                    let result = err?.error?.data?.data;
+                    if(status === 400) {
+                        dispatch(SetNewPasswordError(result));
+                    } else{
+                        console.log(err)
+                    }
+                }
+            }
+        }),
     }),
 })
 
 
-export const {useRegistrationMutation, useLoginMutation} = authApi;
+export const {useRegistrationMutation, useLoginMutation, useForgotPasswordVerifyEmailMutation, useForgotPasswordVerifyOtpMutation, useCreateNewPasswordMutation} = authApi;

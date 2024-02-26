@@ -1,5 +1,4 @@
 import Layout from "../components/Layout/Layout.jsx";
-import TitleMetaTag from "../components/Layout/TitleMetaTag.jsx";
 import {useLocation} from "react-router-dom";
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";

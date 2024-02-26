@@ -1,16 +1,17 @@
 import {Card, Input, Typography, Button, Spinner} from "@material-tailwind/react";
 import { useForm} from "react-hook-form"
-import {useLoginMutation} from "../../redux/features/auth/authApi.js";
+import {useForgotPasswordVerifyEmailMutation} from "../../redux/features/auth/authApi.js";
 import {useDispatch, useSelector} from "react-redux";
 import Error from "../validation/Error.jsx";
-import {SetLoginError} from "../../redux/features/auth/authSlice.js";
+import {SetForgotError} from "../../redux/features/auth/authSlice.js";
 import {Link, useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 
 const ForgotPassword = () => {
-    const [login, {isLoading, isSuccess}] = useLoginMutation();
+    const [forgotPasswordVerifyEmail, {isLoading, isSuccess}] = useForgotPasswordVerifyEmailMutation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const error = useSelector((state)=> state.auth.LoginError);
+    const error = useSelector((state)=> state.auth.ForgotError);
 
     const {
         register,
@@ -20,9 +21,19 @@ const ForgotPassword = () => {
 
 
 
+    useEffect(()=>{
+        if(isSuccess){
+            navigate('/verify-otp');
+        }
+    },[navigate,isSuccess]);
+
     const onSubmit = (data) =>{
         // console.log(data);
-
+        dispatch(SetForgotError(""))
+        const {email} = data;
+        forgotPasswordVerifyEmail({
+            email
+        })
     }
 
 

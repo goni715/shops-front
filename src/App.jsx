@@ -9,6 +9,8 @@ import ProductDetailsPage from "./pages/ProductDetailsPage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
 import VerifyOtpPage from "./pages/VerifyOtpPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
+import CreateNewPassPage from "./pages/CreateNewPassPage.jsx";
+import FullScreenLoader from "./components/Loader/FullScreenLoader.jsx";
 
 const App = () => {
 
@@ -26,9 +28,11 @@ const App = () => {
                     <Route exact path="/register" element={<RegisterPage/>} />
                     <Route exact path="/forgot-password" element={<ForgotPasswordPage/>} />
                     <Route exact path="/verify-otp" element={<VerifyOtpPage/>} />
+                    <Route exact path="/create-new-pass" element={<CreateNewPassPage/>} />
                     <Route path="/*" element={<NotFoundPage/>} />
                 </Routes>
             </BrowserRouter>
+            <FullScreenLoader/>
         </>
     );
 };
