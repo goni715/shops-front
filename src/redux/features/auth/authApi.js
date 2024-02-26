@@ -26,7 +26,7 @@ export const authApi = apiSlice.injectEndpoints({
                         dispatch(SetRegisterError(result));
                     }else{
                         dispatch(SetRegisterError(result));
-                        console.log(err)
+                        // console.log(err)
                     }
                 }
             }
@@ -57,7 +57,7 @@ export const authApi = apiSlice.injectEndpoints({
                         dispatch(SetLoginError("Wrong Password!"));
                     }else{
                         // dispatch(SetLoginError("Something Went Wrong!"));
-                        console.log(err)
+                        // console.log(err)
                     }
                 }
             }
@@ -74,14 +74,14 @@ export const authApi = apiSlice.injectEndpoints({
                     let status = res?.meta?.response?.status;
                     if(status === 200){
                         setEmail(arg.email)
-                        SuccessToast("Success");
+                        // SuccessToast("Success");
                     }
                 }catch(err) {
                     const status = err?.error?.status;
                     if(status === 404) {
                         dispatch(SetForgotError("Could not Find this Email!"));
                     } else{
-                        console.log(err)
+                        // console.log(err)
                     }
                 }
             }
@@ -98,7 +98,7 @@ export const authApi = apiSlice.injectEndpoints({
                     let status = res?.meta?.response?.status;
                     if(status === 200){
                         setOtp(arg.otp)
-                        SuccessToast("Success");
+                        // SuccessToast("Success");
                     }
                 }catch(err) {
                     const status = err?.error?.status;
@@ -106,7 +106,7 @@ export const authApi = apiSlice.injectEndpoints({
                     if(status === 400) {
                         dispatch(SetVerifyOtpError(result));
                     } else{
-                        console.log(err)
+                        // console.log(err)
                     }
                 }
             }
@@ -123,7 +123,7 @@ export const authApi = apiSlice.injectEndpoints({
                     let status = res?.meta?.response?.status;
                     if(status === 200){
                         localStorage.clear()
-                        SuccessToast("Success");
+                        // SuccessToast("Success");
                     }
                 }catch(err) {
                     const status = err?.error?.status;
@@ -131,7 +131,7 @@ export const authApi = apiSlice.injectEndpoints({
                     if(status === 400) {
                         dispatch(SetNewPasswordError(result));
                     } else{
-                        console.log(err)
+                        // console.log(err)
                     }
                 }
             }
