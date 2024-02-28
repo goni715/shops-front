@@ -96,6 +96,16 @@ const ForgotPassword = () => {
 
                             </Button>
                         </div>
+                        <div
+                            className="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
+                            <p>Can you remember your password?</p>
+                            <Link
+                                to="/login"
+                                className="flex cursor-pointer flex-row items-center text-blue-600"
+                                rel="noopener noreferrer">
+                                Login
+                            </Link>
+                        </div>
                     </form>
                 </Card>
             </div>

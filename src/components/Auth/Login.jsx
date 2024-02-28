@@ -106,8 +106,9 @@ const Login = () => {
                             </Button>
                         </div>
                         <div className="flex items-center justify-center">
-                            <Link to="/register" className="text-primary underline cursor-pointer">Not a user Register
-                                here?</Link>
+                            <Link to="/register" className="text-primary underline cursor-pointer">
+                                Don’t have account? Register
+                            </Link>
                         </div>
                     </form>
                 </Card>
