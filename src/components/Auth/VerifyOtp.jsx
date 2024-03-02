@@ -11,6 +11,7 @@ import {useNavigate} from "react-router-dom";
 import {getEmail} from "../../helper/SessionHelper.js";
 import {useEffect} from "react";
 import {HideLoader, ShowLoader} from "../../redux/features/settings/settingsSlice.js";
+import {ShowNotification} from "../../helper/ValidationHelper.js";
 
 const VerifyOtp = () => {
     const [forgotPasswordVerifyOtp, {isLoading, isSuccess}] = useForgotPasswordVerifyOtpMutation();
@@ -51,9 +52,12 @@ const VerifyOtp = () => {
         if(Loading){
             dispatch(ShowLoader())
         }else{
-            dispatch(HideLoader())
+            dispatch(HideLoader());
         }
-    },[dispatch,Loading]);
+        if(Success){
+            ShowNotification("Check Your Email","We have sent you another code.")
+        }
+    },[dispatch,Loading,Success]);
 
 
     const ResendVerifyEmail = () => {
@@ -70,7 +74,7 @@ const VerifyOtp = () => {
                     <Typography variant="h4" color="blue-gray" className="text-center">
                         OTP Verification
                     </Typography>
-                    <Typography className="mt-2 px-1 sm:px-3 font-normal text-[#3c763d] text-center">
+                    <Typography className="mt-2 font-normal text-[#3c763d] text-center">
                         Enter 6 digit otp code. We have just sent a code to {getEmail()}
                     </Typography>
                     {error && (

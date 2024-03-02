@@ -1,4 +1,4 @@
-import {message} from "antd";
+import {message, notification} from "antd";
 
 class ValidationHelper {
 
@@ -7,9 +7,17 @@ class ValidationHelper {
     }
 
     ErrorToast(content){
+        message.config({top:500})
         message.error(content);
     }
 
+    ShowNotification(title,content){
+        notification.info({
+            message:title,
+            placement:"bottomRight",
+            description:content
+        })
+    }
     WarningToast(content){
         message.warning(content);
     }
@@ -21,4 +29,4 @@ class ValidationHelper {
 }
 
 
-export const {SuccessToast, ErrorToast, WarningToast, LoadingToast} = new ValidationHelper();
+export const {SuccessToast, ErrorToast, ShowNotification, WarningToast, LoadingToast} = new ValidationHelper();
