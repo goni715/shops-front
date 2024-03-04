@@ -75,7 +75,7 @@ const VerifyOtp = () => {
                         OTP Verification
                     </Typography>
                     <Typography className="mt-2 font-normal text-[#3c763d] text-center">
-                        Enter 6 digit otp code. We have just sent a code to {getEmail()}
+                        We have just sent a code to {getEmail()}
                     </Typography>
                     {error && (
                         <>
@@ -91,7 +91,7 @@ const VerifyOtp = () => {
                             <Input
                                 size="lg"
                                 type="text"
-                                label="OTP"
+                                label="Enter Code"
                                 autoComplete="off"
                                 {...register("otp",
                                     {
@@ -124,8 +124,8 @@ const VerifyOtp = () => {
                             </Button>
                         </div>
                         <div
-                            className="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
-                            <p>Didn't recieve code?</p> <span onClick={ResendVerifyEmail} className="flex cursor-pointer flex-row items-center text-blue-600"
+                            className="flex flex-row flex-wrap items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
+                            <p>Wait two minutes. Didn't recieve code? </p> <span onClick={ResendVerifyEmail} className="flex cursor-pointer flex-row items-center text-blue-600"
                                                            rel="noopener noreferrer">Resend</span>
                         </div>
                     </form>
