@@ -16,7 +16,7 @@ const ProductList = () => {
         <>
             <Filter/>
             <div className="row grid grid-cols-1">
-                <div className="col-md-9 container">
+                <div className="container">
 
                     {isLoading ? (
                         <>
@@ -24,7 +24,7 @@ const ProductList = () => {
                         </>
                     ): (
                         <>
-                            <div className="flex justify-center md:justify-start flex-wrap gap-4">
+                            <div className="flex justify-center md:justify-start flex-wrap gap-4 pb-6">
 
                                 {products.length > 0 && (
                                      products.map((item, i) => {
