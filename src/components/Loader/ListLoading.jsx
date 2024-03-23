@@ -4,7 +4,7 @@ const ListLoading = () => {
     const array = [1,2,3,4, 5,6,7,8];
     return (
         <>
-            <div className="flex justify-center md:justify-start flex-wrap gap-4 pb-6">
+            <div className="flex justify-center flex-wrap gap-4 pb-6">
                 {
                     array.map((item,i)=>{
                         return(

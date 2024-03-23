@@ -52,8 +52,13 @@ const ProductDetailsPage = () => {
                             </>
                         ) : (
                             <>
-                                <h1 className="text-2xl font-bold font-serif pb-2">Similar Products</h1>
-                                <RelatedProduct products={relatedProducts}/>
+                                {relatedProducts?.length >0 && (
+                                    <>
+                                        <h1 className="text-2xl font-bold font-serif pb-2">Similar Products</h1>
+                                        <RelatedProduct products={relatedProducts}/>
+                                    </>
+                                )
+                                }
                             </>
                         )
                     }
